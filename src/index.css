@@ -1,13 +1,334 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,500&display=swap&subset=chinese-simplified");
+
 body {
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Noto Sans SC", sans-serif;
+  padding-top: 6rem;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+@font-face {
+  font-family: "Noto Sans Mongolian";
+  src: url(https://cdn.glitch.com/d1c36ec3-4e0a-401d-9db2-9265e6e169d2%2FNotoSansMongolian-Regular.ttf?1559017132245)
+    format("truetype");
+}
+
+.tm {
+  font-family: "Noto Sans Mongolian";
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: tb-lr;
+  writing-mode: vertical-lr;
+  -webkit-text-orientation: sideways-right;
+  text-orientation: sideways-right;
+}
+
+/* Header Component */
+.header {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0084ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1rem;
+}
+
+.header-sub {
+  background-color: #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.1rem;
+  padding: 0.5rem 0;
+}
+
+.container {
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+.header a {
+  text-decoration: none;
+}
+
+.header .logo {
+  height: 36px;
+  width: 36px;
+  border-radius: 50%;
+  /* background-color: #0084ff; */
+  margin-right: 0.6rem;
+}
+
+.header .avatar {
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+}
+
+.header .app-title {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+.header .app-title:last-child {
+  color: #0084ff;
+}
+
+.header .fa-camera {
+  font-size: 1.5rem;
+  color: #484848 !important;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Main Component */
+main {
+  max-width: 375px;
+  margin: 0 auto;
+  /* background-color: #ccc; */
+  padding: 0.5rem 1rem;
+}
+/* PostItem Component */
+
+article {
+  display: grid;
+  grid-gap: 0.8rem;
+  grid-template-columns: 40px auto;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.8rem 0;
+}
+
+article section:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: green; */
+}
+
+article .post-avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.verified {
+  height: 36px !important;
+  width: 36px !important;
+  border: 1px solid #0084ff;
+  padding: 2px;
+}
+
+article .post-name {
+  font-weight: 500;
+  padding-bottom: 0.2rem;
+}
+
+article .post-date {
+  color: #787878;
+  padding-bottom: 0.4rem;
+  font-size: 0.9rem;
+}
+
+/* Media Content */
+article .post-direction-h video {
+  max-width: 100%;
+}
+
+article video {
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+article .post-direction-v {
+  /* background-color: pink; */
+  display: flex;
+}
+article .post-direction-v video {
+  max-width: 85%;
+  align-self: flex-start;
+  max-height: 250px;
+}
+
+.post-description a {
+  text-decoration: none;
+  color: #585858;
+}
+
+article .post-direction-v .post-description {
+  padding-left: 0.5rem;
+  padding-top: 0.3rem;
+}
+
+article .post-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article .post-footer {
+  padding-top: 0.8rem;
+  font-size: 1.2rem;
+  color: #484848;
+}
+
+article .more-btn {
+  height: 18px;
+  padding: 0.1rem 0rem;
+  border-radius: 24px;
+}
+
+article .more-btn a {
+  text-decoration: none;
+  color: #333;
+}
+
+article .reaction {
+  display: flex;
+  align-items: center;
+}
+
+article .reaction a {
+  text-decoration: none;
+  color: #484848;
+}
+
+article .reaction-number {
+  font-size: 0.85rem;
+  margin-left: 5px;
+  color: #686868;
+}
+/* Loading */
+.loading-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.loading-container img {
+  height: 32px;
+  width: 32px;
+}
+
+/* Form */
+.btn {
+  background-color: #0084ff;
+  border-radius: 24px;
+  padding: 8px 20px;
+  border: 1px solid #0084ff;
+  color: #fff;
+  font-size: 19px;
+  font-weight: 500;
+  margin-top: 0.8rem;
+}
+
+.form-control {
+  background: #f5f5f5;
+  border: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 1);
+  font-size: 19px;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.links {
+  padding-bottom: 1rem;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.links a {
+  text-decoration: none;
+  color: #0084ff;
+}
+
+/* Text */
+.text-right {
+  text-align: right;
+}
+
+/* Copyright */
+.copyright {
+  margin-top: 5rem;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+/* Load More Button */
+.load-more {
+  width: 100%;
+  margin-top: 12px;
+  margin-bottom: 1.5rem;
+  color: #0084ff;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 8px;
+  outline: none;
+}
+
+/* Recommendation Users */
+.recommendation-users {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1rem;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.recommendation-users img {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  margin-right: 6px;
+}
+
+/* Profile */
+.profile-header {
+  display: flex;
+  margin-bottom: 5rem;
+}
+
+.profile-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 8px;
+  margin-right: 8px;
+}
+.profile-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+.profile-id {
+  color: #686868;
+  margin-bottom: 1rem;
+}
+
+.profile-posts-head {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.profile-name-v {
+  margin-left: 0.2rem;
+  margin-right: 0.5rem;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
